@@ -12,6 +12,14 @@ app.get("/greeting/:name", (req, res) => {
   res.render("Greeting", { Name: name });
 });
 
+app.get("/tip/:var1/:var2", (req, res) => {
+  let var1 = req.params.var1;
+  let var2 = req.params.var2 / 100;
+  let result = var1 * var2;
+
+  res.send(`The tip should be $${result}`);
+});
+
 app.listen("3000", (req, res) => {
   console.log("Listening on port 3000");
 });
