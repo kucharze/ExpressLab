@@ -22,14 +22,17 @@ app.get("/tip/:var1/:var2", (req, res) => {
   res.send(`The tip should be $${result}`);
 });
 
-app.get("/magic", (req, res) => {
+app.get("/magic/:question", (req, res) => {
   let response =
     eightballresponses[
       Math.floor(Math.random(eightballresponses.length - 0) + 0)
     ];
-  let result = var1 * var2;
+  //let result = var1 * var2;
 
-  res.send(`The tip should be $${result}`);
+  res.render("Magic", {
+    question: req.params.question,
+    result: response,
+  });
 });
 
 app.listen("3000", (req, res) => {
