@@ -25,7 +25,7 @@ app.get("/tip/:var1/:var2", (req, res) => {
 app.get("/magic/:question", (req, res) => {
   let response =
     eightballresponses[
-      Math.floor(Math.random(eightballresponses.length - 0) + 0)
+      Math.floor(Math.random() * (eightballresponses.length - 0) + 0)
     ];
   //let result = var1 * var2;
 
